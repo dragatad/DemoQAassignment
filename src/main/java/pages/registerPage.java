@@ -13,7 +13,7 @@ public class registerPage extends basePage{
     private By userName = By.id("userName");
     private By password = By.id("password");
     private By registerButton = By.id("register");
-    private By goToLoginButton = By.xpath("//*[@id=\"gotologin\"]");
+    private By goToLoginButton = By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/div[2]/form/div[4]/div[1]/button");
 
 
     public registerPage(WebDriver driver, WebDriverWait driverWait) {

@@ -11,7 +11,7 @@ public class loginPage extends basePage{
     private By username = By.id("userName");
     private By password = By.id("password");
     private By loginButton = By.id("login");
-    private By newUserButton = By.id("newUser");
+    private By newUserButton = By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/div[2]/form/div[4]/div[2]/button");
 
     public loginPage(WebDriver driver, WebDriverWait driverWait) {
         super(driver, driverWait);

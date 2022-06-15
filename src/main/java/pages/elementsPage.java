@@ -17,8 +17,6 @@ public class elementsPage extends basePage {
         return getDriver().findElement(textBox);
     }
 
-
-
     public void navigateToTextBox(){
         getTextBox().click();
     }

@@ -12,7 +12,7 @@ import java.util.List;
 
 public class bookstorePage extends basePage{
 
-    private By loginSubMenu = By.xpath("//*[@id=\"item-0\"]");
+    private By loginSubMenu = By.xpath("/html/body/div[2]/div/div/div[2]/div[1]/div/div/div[6]/div/ul/li[1]");
     private By bookstoreSubMenu = By.xpath("//*[@id=\"item-2\"]");
     private By profileSubMenu = By.xpath("//*[@id=\"item-3\"]");
     private By searchBoxBookStore = By.id("searchBox");
@@ -43,10 +43,11 @@ public class bookstorePage extends basePage{
     }
 
     public void moveToLoginSubMenu(){
-        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].scrollIntoView();", getLoginSubMenu());
-        getDriverWait().until(ExpectedConditions.elementToBeClickable(getLoginSubMenu()));
-        //Actions actions = new Actions(getDriver());
-        //actions.scrollToElement(getLoginSubMenu()).click().perform();
+       //((JavascriptExecutor)getDriver()).executeScript("arguments[0].scrollIntoView();", getLoginSubMenu());
+        JavascriptExecutor jsExecutor = (JavascriptExecutor) getDriver();
+        jsExecutor.executeScript("window.scrollBy(0,500)");
+        getLoginSubMenu().click();
+        //getDriverWait().until(ExpectedConditions.elementToBeClickable(getLoginSubMenu()));
     }
 
     public void moveToProfileSubMenu(){

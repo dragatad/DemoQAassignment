@@ -1,9 +1,9 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -15,11 +15,10 @@ public class textBoxPage extends basePage{
     private By permanentAddress = By.xpath("//*[@id=\"permanentAddress\"]");
     private By submitButton = By.xpath("//*[@id=\"submit\"]");
 
-    private By resultsName = By.id("name");
+    private By resultsName = By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/div[2]/form/div[6]/div/p[1]");
     private By resultsEmail = By.id("email");
-    private By resultsCAddress = By.id("currentAddress");
-    private By resultsPAddress = By.id("permanentAddress");
-
+    private By resultsCAddress = By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/div[2]/form/div[6]/div/p[3]");
+    private By resultsPAddress = By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/div[2]/form/div[6]/div/p[4]");
 
     public textBoxPage(WebDriver driver, WebDriverWait driverWait) {
         super(driver, driverWait);
@@ -65,10 +64,9 @@ public class textBoxPage extends basePage{
         getPermanentAddress().sendKeys(permanentAddress);
     }
 
-
     public void clickSubmit(){
-        Actions actions = new Actions(getDriver());
-        actions.scrollToElement(getSubmitButton()).click();
+        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].scrollIntoView();", getSubmitButton());
+        getDriverWait().until(ExpectedConditions.elementToBeClickable(getSubmitButton())).click();
     }
 
     public void completeForm(String name, String email, String currentAddress, String permanentAddress){
@@ -79,8 +77,8 @@ public class textBoxPage extends basePage{
         clickSubmit();
     }
 
-    public WebElement getResultsName() throws InterruptedException {
-        Thread.sleep(5000);
+    public WebElement getResultsName() {
+        getDriverWait().until(ExpectedConditions.presenceOfElementLocated(resultsName));
         return getDriver().findElement(resultsName);
     }
 
