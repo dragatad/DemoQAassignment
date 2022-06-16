@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class bookstorePage extends basePage{
+public class BookstorePage extends BasePage {
 
     private By loginSubMenu = By.xpath("/html/body/div[2]/div/div/div[2]/div[1]/div/div/div[6]/div/ul/li[1]");
     private By bookstoreSubMenu = By.xpath("//*[@id=\"item-2\"]");
@@ -18,7 +18,7 @@ public class bookstorePage extends basePage{
     private By searchBoxBookStore = By.id("searchBox");
     private By addToCollectionButton = By.className("btn-primary");
 
-    public bookstorePage(WebDriver driver, WebDriverWait driverWait) {
+    public BookstorePage(WebDriver driver, WebDriverWait driverWait) {
         super(driver, driverWait);
     }
 
@@ -38,16 +38,15 @@ public class bookstorePage extends basePage{
         return getDriver().findElement(bookstoreSubMenu);
     }
 
+
     public WebElement getProfileSubMenu() {
         return getDriver().findElement(profileSubMenu);
     }
 
     public void moveToLoginSubMenu(){
-       //((JavascriptExecutor)getDriver()).executeScript("arguments[0].scrollIntoView();", getLoginSubMenu());
         JavascriptExecutor jsExecutor = (JavascriptExecutor) getDriver();
         jsExecutor.executeScript("window.scrollBy(0,500)");
         getLoginSubMenu().click();
-        //getDriverWait().until(ExpectedConditions.elementToBeClickable(getLoginSubMenu()));
     }
 
     public void moveToProfileSubMenu(){

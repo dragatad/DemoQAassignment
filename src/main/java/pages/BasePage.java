@@ -6,19 +6,19 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public @Getter
-class basePage {
+class BasePage {
 
     private WebDriver driver;
     private WebDriverWait driverWait;
     private static final String PROFILE_URL = "https://demoqa.com/profile";
 
 
-    public basePage(WebDriver driver, WebDriverWait driverWait) {
+    public BasePage(WebDriver driver, WebDriverWait driverWait) {
         this.driver = driver;
         this.driverWait = driverWait;
     }
 
-    public basePage() {
+    public BasePage() {
     }
 
     /**

@@ -5,11 +5,11 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class elementsPage extends basePage {
+public class ElementsPage extends BasePage {
 
     private By textBox = By.xpath("//*[@id=\"item-0\"]");
 
-    public elementsPage(WebDriver driver, WebDriverWait driverWait) {
+    public ElementsPage(WebDriver driver, WebDriverWait driverWait) {
         super(driver, driverWait);
     }
 

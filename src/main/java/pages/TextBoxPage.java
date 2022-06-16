@@ -7,7 +7,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class textBoxPage extends basePage{
+public class TextBoxPage extends BasePage {
 
     private By fullNameField = By.xpath("//*[@id=\"userName\"]");
     private By emailField = By.xpath("//*[@id=\"userEmail\"]");
@@ -20,7 +20,7 @@ public class textBoxPage extends basePage{
     private By resultsCAddress = By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/div[2]/form/div[6]/div/p[3]");
     private By resultsPAddress = By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/div[2]/form/div[6]/div/p[4]");
 
-    public textBoxPage(WebDriver driver, WebDriverWait driverWait) {
+    public TextBoxPage(WebDriver driver, WebDriverWait driverWait) {
         super(driver, driverWait);
     }
 

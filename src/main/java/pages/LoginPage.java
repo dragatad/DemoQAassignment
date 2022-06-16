@@ -3,17 +3,16 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class loginPage extends basePage{
+public class LoginPage extends BasePage {
 
     private By username = By.id("userName");
     private By password = By.id("password");
     private By loginButton = By.id("login");
     private By newUserButton = By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/div[2]/form/div[4]/div[2]/button");
 
-    public loginPage(WebDriver driver, WebDriverWait driverWait) {
+    public LoginPage(WebDriver driver, WebDriverWait driverWait) {
         super(driver, driverWait);
     }
 
@@ -34,7 +33,6 @@ public class loginPage extends basePage{
     }
 
     public void createNewUserClick() throws InterruptedException {
-        //getDriverWait().until(ExpectedConditions.visibilityOfElementLocated(newUserButton));
         Thread.sleep(5000);
         getNewUserButton().click();
     }

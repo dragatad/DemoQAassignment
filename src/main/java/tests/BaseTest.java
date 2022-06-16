@@ -12,18 +12,18 @@ import pages.*;
 import java.time.Duration;
 
 public @Getter
-class baseTest {
+class BaseTest {
     private WebDriver driver;
     private WebDriverWait driverWait;
     private Actions actions;
-    private homePage homePage;
-    private loginPage loginPage;
-    private registerPage registerPage;
-    private profilePage profilePage;
-    private bookstorePage bookstorePage;
-    private alertsPage alertsPage;
-    private elementsPage elementsPage;
-    private textBoxPage textBoxPage;
+    private HomePage homePage;
+    private LoginPage loginPage;
+    private RegisterPage registerPage;
+    private ProfilePage profilePage;
+    private BookstorePage bookstorePage;
+    private AlertsPage alertsPage;
+    private ElementsPage elementsPage;
+    private TextBoxPage textBoxPage;
 
 
 
@@ -39,14 +39,14 @@ class baseTest {
         driver.navigate().to("https://demoqa.com/");
         driver.manage().window().maximize();
 
-        loginPage = new loginPage(driver, driverWait);
-        registerPage = new registerPage(driver,driverWait);
-        homePage = new homePage(driver, driverWait);
-        alertsPage = new alertsPage(driver,driverWait);
-        profilePage = new profilePage(driver, driverWait);
-        bookstorePage = new bookstorePage(driver, driverWait);
-        elementsPage = new elementsPage(driver,driverWait);
-        textBoxPage = new textBoxPage(driver, driverWait);
+        loginPage = new LoginPage(driver, driverWait);
+        registerPage = new RegisterPage(driver,driverWait);
+        homePage = new HomePage(driver, driverWait);
+        alertsPage = new AlertsPage(driver,driverWait);
+        profilePage = new ProfilePage(driver, driverWait);
+        bookstorePage = new BookstorePage(driver, driverWait);
+        elementsPage = new ElementsPage(driver,driverWait);
+        textBoxPage = new TextBoxPage(driver, driverWait);
 
     }
 

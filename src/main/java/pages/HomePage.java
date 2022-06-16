@@ -6,7 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class homePage extends basePage{
+public class HomePage extends BasePage {
 
     private By elementsMenu = By.xpath("//*[@id=\"app\"]/div/div/div[2]/div/div[1]");
     private By bookstoreMenu = By.xpath("//*[@id=\"app\"]/div/div/div[2]/div/div[6]");
@@ -14,7 +14,7 @@ public class homePage extends basePage{
 
 
 
-    public homePage(WebDriver driver, WebDriverWait driverWait) {
+    public HomePage(WebDriver driver, WebDriverWait driverWait) {
         super(driver, driverWait);
     }
 

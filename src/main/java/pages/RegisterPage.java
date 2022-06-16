@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
-public class registerPage extends basePage{
+public class RegisterPage extends BasePage {
     private By firstName = By.id("firstname");
     private By lastName = By.id("lastname");
     private By userName = By.id("userName");
@@ -16,7 +16,7 @@ public class registerPage extends basePage{
     private By goToLoginButton = By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/div[2]/form/div[4]/div[1]/button");
 
 
-    public registerPage(WebDriver driver, WebDriverWait driverWait) {
+    public RegisterPage(WebDriver driver, WebDriverWait driverWait) {
         super(driver, driverWait);
     }
 
@@ -39,7 +39,6 @@ public class registerPage extends basePage{
         getDriverWait().until(ExpectedConditions.presenceOfElementLocated(password));
         return getDriver().findElement(password);
     }
-
 
     public WebElement getRegisterButton() {
         return getDriver().findElement(registerButton);
@@ -99,10 +98,6 @@ public class registerPage extends basePage{
         getDriverWait().until(ExpectedConditions.alertIsPresent());
         return getDriver().switchTo().alert().getText();
     }
-
-
-
-
 
 
 

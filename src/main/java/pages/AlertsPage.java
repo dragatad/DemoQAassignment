@@ -7,21 +7,24 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class alertsPage extends basePage {
+public class AlertsPage extends BasePage {
 
     private By alertsSubMenu = By.xpath("/html/body/div[2]/div/div/div[2]/div[1]/div/div/div[3]/div/ul/li[2]");
 
     private By clickMeAlertButton = By.id("alertButton");
+    private By clickMeTimerButton = By.id("timerAlertButton");
     private By clickMeConfirmButton = By.id("confirmButton");
     private By clickMePromptButton = By.id("promtButton");
 
-    public alertsPage(WebDriver driver, WebDriverWait driverWait) {
+    public AlertsPage(WebDriver driver, WebDriverWait driverWait) {
         super(driver, driverWait);
     }
 
     public WebElement getClickMeAlertButton() {
         return getDriver().findElement(clickMeAlertButton);
     }
+
+    public WebElement getClickMeTimerButton(){ return getDriver().findElement(clickMeTimerButton);}
 
     public WebElement getClickMeConfirmButton() {
         return getDriver().findElement(clickMeConfirmButton);
@@ -35,12 +38,21 @@ public class alertsPage extends basePage {
         getClickMeAlertButton().click();
     }
 
+    public void clickTimerButton() throws InterruptedException {
+        getDriverWait().until(ExpectedConditions.visibilityOfElementLocated((clickMeTimerButton)));
+        getClickMeTimerButton().click();
+    }
+
     public void clickConfirmButton(){
         getClickMeConfirmButton().click();
     }
 
     public void clickPromptButton(){
         getClickMePromptButton().click();
+    }
+
+    public void waitForAlert(){
+        getDriverWait().until(ExpectedConditions.alertIsPresent());
     }
 
     public String getAlertText(){
@@ -63,5 +75,11 @@ public class alertsPage extends basePage {
     public void navigateToAlerts(){
         ((JavascriptExecutor)getDriver()).executeScript("arguments[0].scrollIntoView();", getAlertsSubMenu());
         getDriverWait().until(ExpectedConditions.elementToBeClickable(getAlertsSubMenu())).click();
+    }
+
+    public boolean alertIsPresent() {
+        if (getDriverWait().until(ExpectedConditions.alertIsPresent()) == null)
+            return false;
+        return true;
     }
 }

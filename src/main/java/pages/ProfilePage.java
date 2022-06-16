@@ -6,15 +6,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
-public class profilePage extends basePage{
+public class ProfilePage extends BasePage {
 
     private By logoutButton = By.className("btn-primary");
     private By searchBox = By.id("searchBox");
     private By goToStoreButton = By.xpath("/html/body/div[2]/div/div/div[2]/div[2]/div[2]/div[3]/div[1]/button");
     private By deleteAccountButton = By.id("submit");
-    private By deleteBookIcon = By.id("delete-record-undefined");
 
-    public profilePage(WebDriver driver, WebDriverWait driverWait) {
+    public ProfilePage(WebDriver driver, WebDriverWait driverWait) {
         super(driver, driverWait);
     }
 
@@ -31,17 +30,12 @@ public class profilePage extends basePage{
         getSearchBox().sendKeys(Keys.ENTER);
     }
 
-
     public WebElement getGoToStoreButton() {
         return getDriver().findElement(goToStoreButton);
     }
 
     public WebElement getDeleteAccountButton() {
         return getDriver().findElement(deleteAccountButton);
-    }
-
-    public WebElement getDeleteBookIcon(){
-        return getDriver().findElement(deleteBookIcon);
     }
 
     public boolean isLogoutButtonPresent(){
@@ -55,10 +49,6 @@ public class profilePage extends basePage{
 
     public void clickGoToStoreButton(){
         ((JavascriptExecutor)getDriver()).executeScript("arguments[0].scrollIntoView();", getGoToStoreButton());
-
-
-        //Actions actions = new Actions(getDriver());
-        //actions.moveToElement(getGoToStoreButton()).click().perform();
     }
 
     public boolean isBookAdded(String bookName){
@@ -74,7 +64,7 @@ public class profilePage extends basePage{
     public void deleteBookFromTable(String bookName){
         List<WebElement> list = getDriver().findElements(By.xpath("//*[@id=\"app\"]/div/div/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]"));
         for(WebElement element : list){
-            if(element.getText().contains("Speaking JavaScript")){
+            if(element.getText().contains(bookName)){
                 element.findElement(By.id("delete-record-undefined"));
             }
         }
@@ -85,10 +75,6 @@ public class profilePage extends basePage{
         getDriver().switchTo().alert().accept();
     }
 
-    public String getAlertText(){
-        getDriverWait().until(ExpectedConditions.alertIsPresent());
-        return getDriver().switchTo().alert().getText();
-    }
 
 
 }
