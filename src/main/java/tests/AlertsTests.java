@@ -17,8 +17,8 @@ public class AlertsTests extends BaseTest {
 
     @Test (priority = 2)
     public void verifyTimerAlert() throws InterruptedException {
-        //getHomePage().navigateToAlertsMenu();
-        //getAlertsPage().navigateToAlerts();
+        getHomePage().navigateToAlertsMenu();
+        getAlertsPage().navigateToAlerts();
         getAlertsPage().clickTimerButton();
         Thread.sleep(5000);
         Assert.assertTrue(getAlertsPage().alertIsPresent());
@@ -27,8 +27,8 @@ public class AlertsTests extends BaseTest {
 
     @Test (priority = 3)
     public void verifyConfirmBox(){
-        //getHomePage().navigateToAlertsMenu();
-        //getAlertsPage().navigateToAlerts();
+        getHomePage().navigateToAlertsMenu();
+        getAlertsPage().navigateToAlerts();
         getAlertsPage().clickConfirmButton();
         Assert.assertEquals(getAlertsPage().getAlertText(), "Do you confirm action?");
         getAlertsPage().closeAlert();

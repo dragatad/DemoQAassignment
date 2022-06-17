@@ -35,15 +35,24 @@ public class HomePage extends BasePage {
     }
 
 
+    /**
+     * Metoda za navigaciju ka Elements meniju
+     */
     public void navigateToElements(){
         getElementsMenu().click();
     }
 
+    /**
+     * Metoda za navigaciju ka Bookstore meniju
+     */
     public void navigateToBookstoreMenu(){
         Actions actions = new Actions(getDriver());
         actions.moveToElement(getBookstoreMenu()).click().perform();
     }
 
+    /**
+     * Metoda za navigaciju kao Alerts,Frame & Windows meniju
+     */
     public void navigateToAlertsMenu(){
         Actions actions = new Actions(getDriver());
         actions.moveToElement(getAlertsMenu()).click().perform();

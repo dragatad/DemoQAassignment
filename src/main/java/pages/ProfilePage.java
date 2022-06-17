@@ -25,6 +25,10 @@ public class ProfilePage extends BasePage {
         return getDriver().findElement(searchBox);
     }
 
+
+    /**
+     * Metoda za pretrazivanje biblioteke na osnovu prosledjenog imena knjige
+     */
     public void searchBook(String bookName){
         getSearchBox().sendKeys(bookName);
         getSearchBox().sendKeys(Keys.ENTER);
@@ -38,10 +42,14 @@ public class ProfilePage extends BasePage {
         return getDriver().findElement(deleteAccountButton);
     }
 
-    public boolean isLogoutButtonPresent(){
-        return getLogoutButton().isDisplayed();
-    }
+    /**
+     *Provjera da li je logout button prikazan
+     */
+    public boolean isLogoutButtonPresent(){ return getLogoutButton().isDisplayed();}
 
+    /**
+     * Klik na logout button
+     */
     public void clickLogoutButton(){
         getDriverWait().until(ExpectedConditions.presenceOfElementLocated(logoutButton));
         getLogoutButton().click();
@@ -51,6 +59,9 @@ public class ProfilePage extends BasePage {
         ((JavascriptExecutor)getDriver()).executeScript("arguments[0].scrollIntoView();", getGoToStoreButton());
     }
 
+    /**
+     * Provjera da li se knjiga pod prosledjenim imenom nalazi u kolekciji
+     */
     public boolean isBookAdded(String bookName){
         List<WebElement> list = getDriver().findElements(By.xpath("//*[@id=\"app\"]/div/div/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]"));
         for(WebElement element : list){
@@ -61,6 +72,9 @@ public class ProfilePage extends BasePage {
         return false;
     }
 
+    /**
+     *Metoda za brisanje knjige iz kolekcije
+     */
     public void deleteBookFromTable(String bookName){
         List<WebElement> list = getDriver().findElements(By.xpath("//*[@id=\"app\"]/div/div/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]"));
         for(WebElement element : list){

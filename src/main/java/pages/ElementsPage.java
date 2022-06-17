@@ -17,6 +17,9 @@ public class ElementsPage extends BasePage {
         return getDriver().findElement(textBox);
     }
 
+    /**
+     * Metoda za navigaciju ka textBox opciju u Elements meniju
+     */
     public void navigateToTextBox(){
         getTextBox().click();
     }

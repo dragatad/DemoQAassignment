@@ -52,33 +52,49 @@ public class RegisterPage extends BasePage {
         getGoToLoginButton().click();
     }
 
+    /**
+     * Metoda za unosenje imena na osnovu prosledjenog parametra
+     */
     public void enterFirstName(String firstName) {
         clearField(this.firstName);
         getFirstName().sendKeys(firstName);
     }
 
+    /**
+     * Metoda za unosenje prezimena na osnovu prosledjenog parametra
+     */
     public void enterLastName(String lastName) {
         clearField(this.lastName);
         getLastName().sendKeys(lastName);
     }
 
-
+    /**
+     * Metoda za unosenje korisnickog imena na osnovu prosledjenog parametra
+     */
     public void enterUsername(String username) {
         clearField(this.userName);
         getUserName().sendKeys(username);
     }
 
+    /**
+     * Metoda za unosenje sifre na osnovu prosledjenog parametra
+     */
     public void enterPassword(String password) {
         clearField(this.password);
         getPassword().sendKeys(password);
     }
 
-
+    /**
+     * Klik na register button
+     */
     public void registerButtonClick(){
         getDriverWait().until(ExpectedConditions.elementToBeClickable(registerButton));
         getRegisterButton().click();
     }
 
+    /**
+     * Metoda koja obuhvata sve korake neophodne za registraciju na osnovu prosledjenih parametara
+     */
     public void register(String firstName, String lastName, String username, String password) {
         enterFirstName(firstName);
         enterLastName(lastName);
@@ -94,6 +110,9 @@ public class RegisterPage extends BasePage {
         registerButtonClick();
     }
 
+    /**
+     * Metoda za preuzimanje poruke koja je ispisnaa u alert-u
+     */
     public String getAlertText() {
         getDriverWait().until(ExpectedConditions.alertIsPresent());
         return getDriver().switchTo().alert().getText();

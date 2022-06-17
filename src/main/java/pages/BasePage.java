@@ -28,6 +28,10 @@ class BasePage {
         getDriver().findElement(locator).clear();
     }
 
+    /**
+     * Metoda za navigaciju na profilnu stranicu
+     */
+
     public void openProfilePage(){
         driver.navigate().to(PROFILE_URL);
     }

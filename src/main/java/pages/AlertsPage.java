@@ -24,7 +24,7 @@ public class AlertsPage extends BasePage {
         return getDriver().findElement(clickMeAlertButton);
     }
 
-    public WebElement getClickMeTimerButton(){ return getDriver().findElement(clickMeTimerButton);}
+    public WebElement getClickMeTimerButton() { return getDriver().findElement(clickMeTimerButton);}
 
     public WebElement getClickMeConfirmButton() {
         return getDriver().findElement(clickMeConfirmButton);
@@ -34,37 +34,42 @@ public class AlertsPage extends BasePage {
         return getDriver().findElement(clickMePromptButton);
     }
 
-    public void clickAlertButton(){
+    public void clickAlertButton() {
         getClickMeAlertButton().click();
     }
 
-    public void clickTimerButton() throws InterruptedException {
+    public void clickTimerButton() {
         getDriverWait().until(ExpectedConditions.visibilityOfElementLocated((clickMeTimerButton)));
         getClickMeTimerButton().click();
     }
 
-    public void clickConfirmButton(){
+    public void clickConfirmButton() {
         getClickMeConfirmButton().click();
     }
 
-    public void clickPromptButton(){
+    public void clickPromptButton() {
         getClickMePromptButton().click();
     }
 
-    public void waitForAlert(){
-        getDriverWait().until(ExpectedConditions.alertIsPresent());
-    }
-
-    public String getAlertText(){
+    /**
+     * Preuzimanje poruke ispisane u alert-u
+     */
+    public String getAlertText() {
         getDriverWait().until(ExpectedConditions.alertIsPresent());
         return getDriver().switchTo().alert().getText();
     }
 
-    public void enterNamePromptBox(){
+    /**
+     * Ukucavanje imena u prompt box
+     */
+    public void enterNamePromptBox() {
         getDriver().switchTo().alert().sendKeys("John");
     }
 
-    public void closeAlert(){
+    /**
+     * Zatvaranje alert-a
+     */
+    public void closeAlert() {
         getDriver().switchTo().alert().accept();
     }
 
@@ -72,11 +77,14 @@ public class AlertsPage extends BasePage {
         return getDriver().findElement(alertsSubMenu);
     }
 
-    public void navigateToAlerts(){
-        ((JavascriptExecutor)getDriver()).executeScript("arguments[0].scrollIntoView();", getAlertsSubMenu());
+    public void navigateToAlerts() {
+        ((JavascriptExecutor) getDriver()).executeScript("arguments[0].scrollIntoView();", getAlertsSubMenu());
         getDriverWait().until(ExpectedConditions.elementToBeClickable(getAlertsSubMenu())).click();
     }
 
+    /**
+     * Provjera da li se alert prikazao za dozvoljeno vrijeme wait-era
+     */
     public boolean alertIsPresent() {
         if (getDriverWait().until(ExpectedConditions.alertIsPresent()) == null)
             return false;

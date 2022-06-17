@@ -32,25 +32,41 @@ public class LoginPage extends BasePage {
         return getDriver().findElement(newUserButton);
     }
 
+
+    /**
+     *Metoda za klik za kreiranje novog korisnika
+     */
     public void createNewUserClick() throws InterruptedException {
         Thread.sleep(5000);
         getNewUserButton().click();
     }
 
+    /**
+     *Metoda za unosenje korisnickog imena
+     */
     public void enterUsername(String username) {
         clearField(this.username);
         getUsername().sendKeys(username);
     }
 
+    /**
+     * Metoda za unosenje sifre
+     */
     public void enterPassword(String password) {
         clearField(this.password);
         getPassword().sendKeys(password);
     }
 
+    /**
+     * Klikn na login button
+     */
     public void clickLoginButton(){
         getLoginButton().click();
     }
 
+    /**
+     * Metoda za login koja obuhvata sve korake neophodne za izvrsenje ove radnje na osnovu prosledjenih parametara
+     */
     public void login(String username, String password){
         enterUsername(username);
         enterPassword(password);

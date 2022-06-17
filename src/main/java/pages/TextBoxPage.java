@@ -44,31 +44,50 @@ public class TextBoxPage extends BasePage {
         return getDriver().findElement(submitButton);
     }
 
+    /**
+     *Metoda za unosenje imena na osnovu prosledjenog parametra
+     * @param name
+     */
     public void enterFullName(String name){
         clearField(this.fullNameField);
         getFullNameField().sendKeys(name);
     }
 
+    /**
+     * Metoda za unosenje imejl adrese na osnovu prosledjenog parametra
+     */
     public void enterEmail(String email){
         clearField(this.emailField);
         getEmailField().sendKeys(email);
     }
 
+    /**
+     * Metoda za unosenje sadasnje adrese na osnovu prosledjenog parametra
+     */
     public void enterCurrentAddress(String currentAddress){
         clearField(this.currentAddress);
         getCurrentAddress().sendKeys(currentAddress);
     }
 
+    /**
+     * Metoda za unosenje trajne adrese na osnovu prosledjenog parametra
+     */
     public void enterPermanentAddress(String permanentAddress){
         clearField(this.permanentAddress);
         getPermanentAddress().sendKeys(permanentAddress);
     }
 
+    /**
+     * Klik na submit button
+     */
     public void clickSubmit(){
         ((JavascriptExecutor)getDriver()).executeScript("arguments[0].scrollIntoView();", getSubmitButton());
         getDriverWait().until(ExpectedConditions.elementToBeClickable(getSubmitButton())).click();
     }
 
+    /**
+     * Metoda koja obuhvata sve korake neophodne za opounjavanje formulara na osnovu prosledjenih parametara
+     */
     public void completeForm(String name, String email, String currentAddress, String permanentAddress){
         enterFullName(name);
         enterEmail(email);

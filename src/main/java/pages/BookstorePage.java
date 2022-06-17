@@ -43,6 +43,9 @@ public class BookstorePage extends BasePage {
         return getDriver().findElement(profileSubMenu);
     }
 
+    /**
+     * Metoda za navigaciju ka login meniju
+     */
     public void moveToLoginSubMenu(){
         JavascriptExecutor jsExecutor = (JavascriptExecutor) getDriver();
         jsExecutor.executeScript("window.scrollBy(0,500)");
@@ -55,11 +58,16 @@ public class BookstorePage extends BasePage {
         actions.moveToElement(getProfileSubMenu()).click().perform();
     }
 
-
+    /**
+     * Metoda za unosenje imena knjige za pretragu
+     */
     public void enterBookName(String bookName){
         getSearchBoxBookStore().sendKeys(bookName);
     }
 
+    /**
+     * Metoda za klik na knjigu i otvaranje stranice te knjige
+     */
     public void clickBook(){
         List<WebElement> list = getDriver().findElements(By.className("action-buttons"));
         for(WebElement element : list){
@@ -69,6 +77,9 @@ public class BookstorePage extends BasePage {
         }
     }
 
+    /**
+     * Metoda za dodavanje knjige u kolekciju korisnika
+     */
     public void clickAddToCollection(){
         Actions actions = new Actions(getDriver());
         actions.scrollToElement(getAddToCollectionButton()).click().perform();
@@ -78,6 +89,9 @@ public class BookstorePage extends BasePage {
         getDriver().switchTo().alert().accept();
     }
 
+    /**
+     * Metoda koja obuhvata sve korake neophodne za izvrsenje radnje dodvanja knjige u kolekciju
+     */
     public void addBook(String bookName){
         enterBookName(bookName);
         clickBook();
