@@ -7,7 +7,15 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import pages.*;
+import pages.alertsPages.AlertsPage;
+import pages.bookstoreApplicationPages.BookstorePage;
+import pages.bookstoreApplicationPages.LoginPage;
+import pages.bookstoreApplicationPages.ProfilePage;
+import pages.bookstoreApplicationPages.RegisterPage;
+import pages.commonPages.HomePage;
+import pages.elementsPages.ButtonsPage;
+import pages.elementsPages.ElementsPage;
+import pages.elementsPages.TextBoxPage;
 
 import java.time.Duration;
 
@@ -24,6 +32,7 @@ class BaseTest {
     private AlertsPage alertsPage;
     private ElementsPage elementsPage;
     private TextBoxPage textBoxPage;
+    private ButtonsPage buttonsPage;
 
 
 
@@ -47,6 +56,7 @@ class BaseTest {
         bookstorePage = new BookstorePage(driver, driverWait);
         elementsPage = new ElementsPage(driver,driverWait);
         textBoxPage = new TextBoxPage(driver, driverWait);
+        buttonsPage = new ButtonsPage(driver, driverWait);
 
     }
 

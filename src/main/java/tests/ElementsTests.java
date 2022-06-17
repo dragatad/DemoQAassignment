@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 
 public class ElementsTests extends BaseTest {
 
-    @Test
+    /*@Test
     public void verifyTextBoxSubmission() {
         getHomePage().navigateToElements();
         getElementsPage().navigateToTextBox();
@@ -14,6 +14,33 @@ public class ElementsTests extends BaseTest {
         Assert.assertEquals(getTextBoxPage().getResultsEmail().getText(),"Email:john12@gmail.com");
         Assert.assertEquals(getTextBoxPage().getResultsCAddress().getText(),"Current Address :New Road");
         Assert.assertEquals(getTextBoxPage().getResultsPAddress().getText(),"Permananet Address :Old Road");
+    }*/
+
+    @Test
+    public void verifyDoubleClickMessage(){
+        getHomePage().navigateToElements();
+        getElementsPage().navigateToButtons();
+        getButtonsPage().doubleClick();
+        Assert.assertEquals(getButtonsPage().getConfirmationMessageDoubleClick(),"You have done a double click");
     }
+
+    @Test
+    public void verifyRightClickMessage(){
+        //getHomePage().navigateToElements();
+        //getElementsPage().navigateToButtons();
+        getButtonsPage().rightClick();
+        Assert.assertEquals(getButtonsPage().getConfirmationMessageRightClick(),"You have done a right click");
+    }
+
+    @Test
+    public void verifyDynamicClick(){
+        //getHomePage().navigateToElements();
+        //getElementsPage().navigateToButtons();
+        getButtonsPage().dynamicClick();
+        Assert.assertEquals(getButtonsPage().getConfirmationMessageDynamicClick(),"You have done a dynamic click");
+
+    }
+
+
 
 }
