@@ -39,7 +39,6 @@ public class BookstorePage extends BasePage {
         return getDriver().findElement(bookstoreSubMenu);
     }
 
-
     public WebElement getProfileSubMenu() {
         return getDriver().findElement(profileSubMenu);
     }
@@ -51,12 +50,6 @@ public class BookstorePage extends BasePage {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) getDriver();
         jsExecutor.executeScript("window.scrollBy(0,500)");
         getLoginSubMenu().click();
-    }
-
-    public void moveToProfileSubMenu(){
-        Actions actions = new Actions(getDriver());
-        getDriverWait().until(ExpectedConditions.elementToBeClickable(profileSubMenu));
-        actions.moveToElement(getProfileSubMenu()).click().perform();
     }
 
     /**

@@ -11,6 +11,7 @@ public class ElementsPage extends BasePage {
 
     private By textBox = By.xpath("//*[@id=\"item-0\"]");
     private By buttons = By.xpath("//*[@id=\"item-4\"]");
+    private By radioButton = By.xpath("//*[@id=\"item-2\"]");
 
     public ElementsPage(WebDriver driver, WebDriverWait driverWait) {
         super(driver, driverWait);
@@ -22,6 +23,10 @@ public class ElementsPage extends BasePage {
 
     public WebElement getButtons(){
         return getDriver().findElement(buttons);
+    }
+
+    public WebElement getRadioButton(){
+        return getDriver().findElement(radioButton);
     }
 
     /**
@@ -39,6 +44,14 @@ public class ElementsPage extends BasePage {
         JavascriptExecutor jsExecutor = (JavascriptExecutor) getDriver();
         jsExecutor.executeScript("window.scrollBy(0,500)");
         getButtons().click();}
+
+    /**
+     * Metoda za navigaciju ka Radio Button opciji u Elements meniju
+     */
+
+    public void navigateToRadioButton(){
+        getRadioButton().click();
+    }
 
 
 

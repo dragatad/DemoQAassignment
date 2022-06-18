@@ -15,6 +15,7 @@ import pages.bookstoreApplicationPages.RegisterPage;
 import pages.commonPages.HomePage;
 import pages.elementsPages.ButtonsPage;
 import pages.elementsPages.ElementsPage;
+import pages.elementsPages.RadioButtonPage;
 import pages.elementsPages.TextBoxPage;
 
 import java.time.Duration;
@@ -33,6 +34,7 @@ class BaseTest {
     private ElementsPage elementsPage;
     private TextBoxPage textBoxPage;
     private ButtonsPage buttonsPage;
+    private RadioButtonPage radioButtonPage;
 
 
 
@@ -57,6 +59,7 @@ class BaseTest {
         elementsPage = new ElementsPage(driver,driverWait);
         textBoxPage = new TextBoxPage(driver, driverWait);
         buttonsPage = new ButtonsPage(driver, driverWait);
+        radioButtonPage = new RadioButtonPage(driver, driverWait);
 
     }
 

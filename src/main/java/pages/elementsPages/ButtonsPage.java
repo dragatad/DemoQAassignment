@@ -33,27 +33,48 @@ public class ButtonsPage extends BasePage {
         return getDriver().findElement(dynamicClick);
     }
 
+    /**
+     * Metoda za dupli klik
+     */
     public void doubleClick() {
         Actions actions = new Actions(getDriver());
         actions.doubleClick(getDoubleClick()).perform();
     }
+
+    /**
+     * Metoda za desni klik
+     */
 
     public void rightClick() {
         Actions actions = new Actions(getDriver());
         actions.contextClick(getRightClick()).perform();
     }
 
+    /**
+     * Metoda za dinamicki klik
+     */
     public void dynamicClick() {
         getDynamicClick().click();
     }
 
+    /**
+     * Metoda za preuzimanje poruke nakon duplog klika
+     */
     public String getConfirmationMessageDoubleClick() {
         return getDriver().findElement(doubleClickMessage).getText();
     }
 
+    /**
+     * Metoda za preuzimanje poruke nakon desnog klika
+     */
+
     public String getConfirmationMessageRightClick() {
         return getDriver().findElement(rightClickMessage).getText();
     }
+
+    /**
+     *Metoda za preuzimanje poruke nakon dinamickog klika
+     */
 
     public String getConfirmationMessageDynamicClick() {
         return getDriver().findElement(dynamicClickMessage).getText();
